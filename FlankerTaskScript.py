@@ -27,7 +27,8 @@ while trial < 7:
     path_to_image_file1 = Path("arrow_right2.png")
     path_to_image_file2 = Path("arrow_left2.png")
     list_arrows = [path_to_image_file1, path_to_image_file2]
-    arrow_central = visual.ImageStim(my_win, image=random.choice(list_arrows))
+    central_image = random.choice(list_arrows)
+    arrow_central = visual.ImageStim(my_win, image=central_image)
     side_image = random.choice(list_arrows)
     arrow_side_1 = visual.ImageStim(my_win, image=side_image, pos=0.3)
     arrow_side_2 = visual.ImageStim(my_win, image=side_image, pos=-0.3)
@@ -42,10 +43,18 @@ while trial < 7:
         if pressd:
             print(pressd[0].name, pressd[0].rt )
             trial = trial+1
+            if central_image == path_to_image_file1:
+                print("kk")
+            elif central_image == path_to_image_file2:
+                print("ss")
+            if central_image == side_image:
+                print("congurent")
+            elif central_image != side_image:
+                print("incongruent")
             break
         elif kb.clock.getTime() >= 5:
             print("-")
-            break
+            break   
     if trial > 6:
         print("six trials completed")
         break
