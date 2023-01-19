@@ -67,3 +67,11 @@ info_text.draw()
 my_win.flip()
 kb.waitKeys(keyList = ["space"])
 
+
+
+# GL:
+# All seems nice generally, just a bit basic, but even so should be alright if everything works fine.
+# Missing:
+# -- Data recording, output file.
+# Minor:
+# -- Define image object in the beginning, then just change it in the loop.
