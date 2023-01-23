@@ -21,7 +21,7 @@ my_text.draw()
 info_text.draw()
 my_win.flip()
 kb.waitKeys(keyList = ["space"]) 
-sys.stdout = open("data_output", "a")
+sys.stdout = open("data_output.txt", "a")
 list_arrows = ["arrow_right2.png", "arrow_left2.png"]
 trial = 1
 while trial < 7:
