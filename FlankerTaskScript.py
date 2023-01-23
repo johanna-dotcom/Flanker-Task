@@ -7,6 +7,7 @@ kb = keyboard.Keyboard()
 from pathlib import Path
 from PIL import Image
 import random
+import sys
 my_win = Window ([800, 400], color="#0000FF")
 my_text = TextStim(my_win, color = "#FFFF00" ,text = "Welcome to the Flanker Task Experiment")
 info_text = TextStim(my_win, color = "#FFFF00", text = "Proceed to instructions by pressing the space button", pos = [0, -0.8])
@@ -20,13 +21,13 @@ my_text.draw()
 info_text.draw()
 my_win.flip()
 kb.waitKeys(keyList = ["space"]) 
-trial=1
+sys.stdout = open("data_output", "a")
+list_arrows = ["arrow_right2.png", "arrow_left2.png"]
+trial = 1
 while trial < 7:
+    print(trial)
     my_win.flip()
     wait(2)
-    path_to_image_file1 = Path("arrow_right2.png")
-    path_to_image_file2 = Path("arrow_left2.png")
-    list_arrows = [path_to_image_file1, path_to_image_file2]
     central_image = random.choice(list_arrows)
     arrow_central = visual.ImageStim(my_win, image=central_image)
     side_image = random.choice(list_arrows)
@@ -41,12 +42,12 @@ while trial < 7:
         my_win.flip()
         pressd = kb.getKeys()
         if pressd:
-            print(pressd[0].name, pressd[0].rt )
+            print("key pressed:", pressd[0].name, "reaction time:", pressd[0].rt )
             trial = trial+1
-            if central_image == path_to_image_file1:
-                print("kk")
-            elif central_image == path_to_image_file2:
-                print("ss")
+            if central_image == "arrow_right2.png":
+                print("correct response: k")
+            elif central_image == "arrow_left2.png":
+                print("correct response: s")
             if central_image == side_image:
                 print("congurent")
             elif central_image != side_image:
@@ -69,9 +70,3 @@ kb.waitKeys(keyList = ["space"])
 
 
 
-# GL:
-# All seems nice generally, just a bit basic, but even so should be alright if everything works fine.
-# Missing:
-# -- Data recording, output file.
-# Minor:
-# -- Define image object in the beginning, then just change it in the loop.
