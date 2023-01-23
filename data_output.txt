@@ -1,0 +1,26 @@
+1
+key pressed: s reaction time: 0.6728658999782056
+correct response: s
+incongruent
+2
+key pressed: k reaction time: 0.43843929999275133
+correct response: k
+congurent
+3
+key pressed: s reaction time: 0.46297200000844896
+correct response: s
+congurent
+4
+key pressed: s reaction time: 0.5384163999697194
+correct response: s
+congurent
+5
+key pressed: s reaction time: 0.4932632999843918
+correct response: s
+incongruent
+6
+key pressed: s reaction time: 0.5890447999699973
+correct response: s
+incongruent
+six trials completed
+3.0916 	WARNING 	Monitor specification not found. Creating a temporary one...
